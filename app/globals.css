@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 265 89% 54%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 270 50% 96%;
+    --secondary-foreground: 265 89% 54%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 270 50% 96%;
+    --accent-foreground: 265 89% 54%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 265 89% 54%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 265 89% 54%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 265 89% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-jakarta;
+  }
+}
+
+.glass-effect {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tech-pattern {
+  background-image: radial-gradient(circle at 25px 25px, rgba(139, 92, 246, 0.15) 2px, transparent 0),
+    radial-gradient(circle at 75px 75px, rgba(139, 92, 246, 0.15) 2px, transparent 0);
+  background-size: 100px 100px;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600;
+}
+
+.gradient-bg-purple {
+  @apply bg-gradient-to-r from-purple-500 to-indigo-600;
+}
+
+.gradient-bg-card {
+  @apply bg-gradient-to-br from-white to-purple-50;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 0.75rem;
+  background: white;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.85rem;
+  background: linear-gradient(45deg, #a855f7, #6366f1);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+.gradient-button {
+  @apply relative overflow-hidden transition-all duration-300;
+  background: linear-gradient(90deg, #a855f7, #6366f1, #a855f7);
+  background-size: 200% 100%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.gradient-button:hover {
+  background-position: 100% 0;
+  animation: none;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-section {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+}
